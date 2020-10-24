@@ -2,15 +2,22 @@
 # 次に、 gets.to_i で数値を入力し、上の関数を呼び出して素数かどうか判定して、素数ならYes、素数でなければNoと出力するようにせよ。
 
 def prime_check(n)
+    if (n == 1 || n == 2)
+        return false
+    end
   start = 2
   n.times do 
-    if((n % start) == 0 && (n != start))
-      return "No"
+    if((n % start) == 0 && (n != start)) 
+      return false
       break
     end
     start = start + 1
   end
-  return "Yes"
+  return true
 end
 
-puts prime_check(gets.to_i)
+if prime_check(gets.to_i) == true
+    puts "Yes"
+else
+    puts "No"
+end
