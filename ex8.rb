@@ -19,15 +19,27 @@ class Account
 
     def withdraw(x)
         @money -= x
+        check(@money)
     end
 
     def transfer(x, y)
         @money -= y
         x.money += y
+        check(@money)
     end
 
     def balance()
-        return @money
+        return "#{@money}円"
+    end
+
+    def check(x)
+        begin
+            if (x.to_i < 0) then
+                raise RuntimeError, "残高が0円未満です"
+            end
+        rescue => e
+            puts "Error: #{e}"
+        end
     end
 end
 
