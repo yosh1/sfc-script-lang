@@ -1,5 +1,5 @@
 class FacultiesController < ApplicationController
   def show
-    @faculty = Faculty.find(1)
+    @faculty = Faculty.find(params[:id])
   end
 end
